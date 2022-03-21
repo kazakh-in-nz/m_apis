@@ -32,7 +32,7 @@ func NewGameClient(cc grpc.ClientConnInterface) GameClient {
 
 func (c *gameClient) SetHighScore(ctx context.Context, in *SetHighScoreRequest, opts ...grpc.CallOption) (*SetHighScoreResponse, error) {
 	out := new(SetHighScoreResponse)
-	err := c.cc.Invoke(ctx, "/m.highscore.Game/SetHighScore", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ms.highscore.v1.Game/SetHighScore", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *gameClient) SetHighScore(ctx context.Context, in *SetHighScoreRequest, 
 
 func (c *gameClient) GetHighScore(ctx context.Context, in *GetHighScoreRequest, opts ...grpc.CallOption) (*GetHighScoreResponse, error) {
 	out := new(GetHighScoreResponse)
-	err := c.cc.Invoke(ctx, "/m.highscore.Game/GetHighScore", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ms.highscore.v1.Game/GetHighScore", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _Game_SetHighScore_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/m.highscore.Game/SetHighScore",
+		FullMethod: "/ms.highscore.v1.Game/SetHighScore",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GameServer).SetHighScore(ctx, req.(*SetHighScoreRequest))
@@ -108,7 +108,7 @@ func _Game_GetHighScore_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/m.highscore.Game/GetHighScore",
+		FullMethod: "/ms.highscore.v1.Game/GetHighScore",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GameServer).GetHighScore(ctx, req.(*GetHighScoreRequest))
@@ -120,7 +120,7 @@ func _Game_GetHighScore_Handler(srv interface{}, ctx context.Context, dec func(i
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Game_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "m.highscore.Game",
+	ServiceName: "ms.highscore.v1.Game",
 	HandlerType: (*GameServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

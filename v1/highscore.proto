@@ -1,15 +1,15 @@
 syntax = "proto3";
-package m.highscore;
+package ms.highscore.v1;
 
-option go_package="./;game";
+option go_package = "./;game";
 
-service Game{
+service Game {
     rpc SetHighScore(SetHighScoreRequest) returns (SetHighScoreResponse);
     rpc GetHighScore(GetHighScoreRequest) returns (GetHighScoreResponse);
 }
 
 message SetHighScoreRequest {
-    double high_score = 1;
+    double highScore = 1;
 }
 
 message SetHighScoreResponse {
@@ -19,5 +19,5 @@ message SetHighScoreResponse {
 message GetHighScoreRequest {}
 
 message GetHighScoreResponse {
-    double high_score = 1;
+    double highScore = 1;
 }
